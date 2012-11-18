@@ -9,19 +9,14 @@ sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
 
 #启动IBus框架，在终端输入：
 im-switch -s ibus
-
 #IBus拼音
 sudo apt-get install ibus-pinyin
-
 #IBUS五笔
 sudo apt-get install ibus-table-wubi
-
 #谷歌拼音输入法
 sudo apt-get install ibus-googlepinyin
-
 #设置IBus框架  www.2cto.com  
 ibus-setu
-
 # 显示输入法
 ibus-daemon -drx
 
@@ -46,3 +41,5 @@ ibus-daemon -drx
 sudo apt-get install ktouch
 #TypeSpeed
 sudo apt-get install typespeed
+#Gitthub
+sudo apt-get install git git-core 
