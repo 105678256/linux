@@ -6,7 +6,6 @@ sudo apt-get install ckermit automake -y
 
 #安装IBus框架，在终端输入以下命令：
 sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
-
 #启动IBus框架，在终端输入：
 im-switch -s ibus
 #IBus拼音
