@@ -41,4 +41,6 @@ sudo apt-get install ktouch
 #TypeSpeed
 sudo apt-get install typespeed
 #Gitthub
-sudo apt-get install git git-core 
+sudo apt-get install git git-core
+更新文件
+sudo apt-get update
