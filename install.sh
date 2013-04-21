@@ -18,19 +18,16 @@ sudo apt-get install ibus-googlepinyin
 ibus-setu
 # 显示输入法
 ibus-daemon -drx
-
+#xiezai
+apt-get autoremove
 #ftdi
  sudo apt-get install libftdi-dev
-
- # openocd
+#openocd
  sudo apt-get install openocd -y
-
  # Chromium, fast and best browser
  sudo apt-get install chromium-browser -y
-
 # vim安装：
  sudo apt-get install vim-gnome -y
-
 # tftp服务器配置
  sudo apt-get install tftp tftpd openbsd-inetd
  sudo mkdir /tftpboot

@@ -1,0 +1,29 @@
+#!/system/bin/sh
+
+LOG_DIR=/data/data/
+
+while true
+do
+	# send keyevent KEYCODE_ENTER
+	input keyevent 66
+
+	hciconfig hci0|grep "UP RUNNING"
+	while [ $? -ne 0 ]
+	do
+		sleep 1
+		hciconfig hci0|grep "UP RUNNING"
+	done
+	PID=`pidof bluetoothd`
+	lsof |grep bluetooth > $LOG_DIR/lsof-before-hci0-down-$PID.log
+
+	# send keyevent KEYCODE_ENTER
+	input keyevent 66
+
+	hciconfig hci0|grep DOWN
+	while [ $? -ne 0 ]
+	do
+		sleep 1
+		hciconfig hci0|grep DOWN
+	done
+	lsof |grep bluetooth > $LOG_DIR/lsof-after-hci0-down-$PID.log
+done

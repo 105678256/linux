@@ -1,0 +1,12 @@
+[user]
+	email = fudongbai@gmail.com
+	name = Fudong Bai
+[color]
+	diff = auto
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpuser = fudongbai@gmail.com
+	smtpssl = yes
+	from = Fudong Bai <fudongbai@gmail.com>

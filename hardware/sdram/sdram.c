@@ -7,7 +7,7 @@
 #define	GPB7_out	(1<<(7*2))
 #define	GPB8_out	(1<<(8*2))
 
-void wait(unsigned long dly)
+void wait(/*  volatile*/ unsigned long dly)
 {
 	for(; dly > 0; dly--);
 }
