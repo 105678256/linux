@@ -1,3 +1,0 @@
-sudo fastboot erase recovery
-sudo fastboot flash recovery recovery.cpio.img
-sudo fastboot reboot

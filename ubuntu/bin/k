@@ -1,3 +1,0 @@
-sudo fastboot erase boot
-sudo fastboot flash:raw boot boot.img
-sudo fastboot reboot
