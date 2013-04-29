@@ -45,7 +45,7 @@ Disassembly of section .data:
   98:	000000b2 	strheq	r0, [r0], -r2
   9c:	00000030 	andeq	r0, r0, r0, lsr r0
   a0:	00000030 	andeq	r0, r0, r0, lsr r0
-  a4:	00000010 	andeq	r0, r0, r0, lsl r0
+  a4:	30000010 	andcc	r0, r0, r0, lsl r0
   a8:	e1a00000 	nop			(mov r0,r0)
   ac:	e1a00000 	nop			(mov r0,r0)
   b0:	e52db004 	push	{fp}		; (str fp, [sp, #-4]!)
