@@ -23,12 +23,13 @@ int main()
 unsigned long dwDat;
 	GPBCON =GPB5_out | GPB6_out | GPB7_out | GPB8_out ;
 
-
+/*  
 	GPGCON &= GPG0_in & GPG3_in & GPG5_in & GPG6_in ;
 	while(1){
 
 	GPBDAT = ((GPGDAT & 0x01)<<5)|((GPGDAT & 0x08) << 3)|((GPGDAT & 0x60)<<2);
-#if 0	 //若Kn为0(表示按下)，则令LEDn为0(表示点亮)
+*/
+	 //若Kn为0(表示按下)，则令LEDn为0(表示点亮)
             dwDat = GPGDAT;             // 读取GPG管脚电平状态
         
             if (dwDat & (1<<0))        // K1没有按下
@@ -51,7 +52,7 @@ unsigned long dwDat;
             else    
                 GPBDAT &= ~(1<<8);      // LED4点亮
     
-#endif
+
 	}
 
 
