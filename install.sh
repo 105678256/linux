@@ -1,18 +1,16 @@
 # make menuconfig
 sudo apt-get install libncurses5-dev -y
-
 # ckermit
 sudo apt-get install ckermit automake -y
-
-#安装IBus框架，在终端输入以下命令：
+#安装IBus框架
 sudo apt-get install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4
-#启动IBus框架，在终端输入：
+#启动IBus框架
 im-switch -s ibus
 #IBus拼音
 sudo apt-get install ibus-pinyin
 #IBUS五笔
 sudo apt-get install ibus-table-wubi
-#设置IBus框架  www.2cto.com  
+#设置IBus框架  
 ibus-setu
 # 显示输入法
 ibus-daemon -drx
@@ -33,22 +31,18 @@ apt-get autoremove
  sudo chown -R nobody /tftpboot
 # Ktouch打字练习
 sudo apt-get install ktouch
-#Gitthub
+#Git
 sudo apt-get install git git-core
 #更新文件
 sudo apt-get update
 #goldendict词典
-sudo apt-get install goldendict
+sudo apt-get install goldendict -y
+sudo apt-get install goldendict-wordnet
 #音乐播放器
-sudo apt-get install mplayer
-
-
-
-
-
-
-
-
+sudo apt-get install mplayer -y
+sudo apt-get install smplayer -y
+#文本编辑
+sudo apt-get install medit
 
 
 
@@ -61,7 +55,6 @@ sudo apt-get install mplayer
 # This script helps me install all the needed deb packages in my daily life
 # Current version is for Ubuntu 12.04 (Precise Pangolin)
 ############################ Basic Setup ###############################
-sudo apt-get install ckermit automake -y
 sudo apt-get install ctags
 sudo apt-get install chmsee -y
 sudo apt-get install rar unrar tree -y
@@ -70,8 +63,6 @@ sudo apt-get install ascii
 sudo apt-get install dos2unix
 sudo apt-get install bless	# a hex editor
 sudo apt-get install gconf-editor -y	# ubuntu gnome config editor
-sudo apt-get install goldendict -y
-sudo apt-get install goldendict-wordnet
 sudo apt-get install stardict -y
 
 # grant access to /dev/ttyS0 (and friends), needs reboot
@@ -79,13 +70,9 @@ sudo adduser `whoami` dialout
 
 sudo apt-get install leafpad -y
 sudo apt-get install nautilus-open-terminal -y
-sudo apt-get install vim-gnome -y
-
 # lndir
 sudo apt-get install xutils-dev
 
-# ime
-sudo apt-get install ibus ibus-pinyin ibus-table-wubi -y
 
 # to fix evince parsing Chinese issue
 sudo apt-get install poppler-data
@@ -95,7 +82,6 @@ gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 ########################################################################
 
 ############################ version control ###########################
-sudo apt-get install git-core -y
 sudo apt-get install git-email -y
 sudo apt-get install gitk -y
 sudo apt-get install subversion -y
@@ -149,8 +135,6 @@ sudo service udhcpd restart
 
 
 ############################# video program ############################
-sudo apt-get install mplayer -y
-sudo apt-get install smplayer -y
 
 sudo apt-get install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad -y
 # for asf files
@@ -240,9 +224,6 @@ sudo apt-get install lzop -y
 
 sudo apt-get install uuid-dev
 
-# openocd
-sudo apt-get install openocd -y
-
 # file /bin/sh
 # sudo ln -fs /bin/bash /bin/sh
 
@@ -292,8 +273,6 @@ sudo apt-get install miredo
 sudo apt-get update
 # sudo apt-get install my-weather-indicator
 ########################################################################
-
-
 
 ############################## wordpress ###############################
 sudo apt-get install wordpress -y
