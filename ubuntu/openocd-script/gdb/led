@@ -1,0 +1,7 @@
+target remote localhost:3333
+monitor halt
+monitor arm920t cp15 2 0
+monitor step
+monitor load_image leds
+monitor bp 0x4 4 hw
+monitor resume 0
