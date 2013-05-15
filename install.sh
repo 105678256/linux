@@ -24,6 +24,7 @@ apt-get autoremove
  sudo apt-get install chromium-browser -y
 # vim安装：
  sudo apt-get install vim-gnome -y
+ sudo apt-get install nautilus-open-terminal -y
 # tftp服务器配置
  sudo apt-get install tftp tftpd openbsd-inetd
  sudo mkdir /tftpboot
