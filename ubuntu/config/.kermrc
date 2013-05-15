@@ -1,0 +1,17 @@
+#set line /dev/ttyS0
+set line /dev/ttyUSB0
+set speed 115200
+set carrier-watch off
+set handshake none
+set flow-control none
+robust
+set file type bin
+set file name lit
+set rec pack 1000
+set send pack 1000
+set window 5
+
+.log_dir := ~/logs/
+cd \m(log_dir)
+set session-log timestamped
+log session \v(ndate)-\v(time).log

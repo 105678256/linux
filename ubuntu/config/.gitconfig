@@ -1,0 +1,12 @@
+[user]
+	email = baron@163.com
+	name = baron
+[color]
+	diff = auto
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.163.com
+	smtpserverport = 587
+	smtpuser = baron@163.com
+	smtpssl = yes
+	from = baron <baron@163.com>
