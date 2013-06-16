@@ -20,7 +20,7 @@ apt-get autoremove
  sudo apt-get install libftdi-dev
 #openocd
  sudo apt-get install openocd -y
- # Chromium, fast and best browser
+ # Chromium browser
  sudo apt-get install chromium-browser -y
 # vim安装：
  sudo apt-get install vim-gnome -y
@@ -30,6 +30,10 @@ apt-get autoremove
  sudo mkdir /tftpboot
  sudo chmod -R 777 /tftpboot
  sudo chown -R nobody /tftpboot
+ # need to edit /etc/inetd.conf 
+# sudo /etc/init.d/openbsd-inetd restart
+sudo apt-get install openssh-server -y
+
 # Ktouch打字练习
 sudo apt-get install ktouch
 #Git
@@ -39,11 +43,13 @@ sudo apt-get update
 #goldendict词典
 sudo apt-get install goldendict -y
 sudo apt-get install goldendict-wordnet
-#音乐播放器
+#播放器
 sudo apt-get install mplayer -y
 sudo apt-get install smplayer -y
 #文本编辑
 sudo apt-get install medit
+
+sudo apt-get install adobe-flashplugin
 
 
 
@@ -68,12 +74,9 @@ sudo apt-get install stardict -y
 
 # grant access to /dev/ttyS0 (and friends), needs reboot
 sudo adduser `whoami` dialout
-
 sudo apt-get install leafpad -y
-sudo apt-get install nautilus-open-terminal -y
 # lndir
 sudo apt-get install xutils-dev
-
 
 # to fix evince parsing Chinese issue
 sudo apt-get install poppler-data
@@ -105,16 +108,6 @@ sudo apt-get install libncurses5-dev -y
 
 # a front end reader of trace-cmd output
 sudo apt-get install kernelshark -y
-########################################################################
-
-############################ tftp server ###############################
-sudo apt-get install tftp tftpd openbsd-inetd -y
-sudo mkdir /tftpboot
-sudo chmod -R 777 /tftpboot
-sudo chown -R nobody /tftpboot
-# need to edit /etc/inetd.conf 
-# sudo /etc/init.d/openbsd-inetd restart
-sudo apt-get install openssh-server -y
 ########################################################################
 
 
@@ -244,13 +237,8 @@ sudo gdebi /opt/software/ubuntu/bcompare/bcompare-3.3.5.15075_i386.deb
 # nfs server
 sudo apt-get install nfs-kernel-server -y --force-yes
 
-# Chromium, fast and best browser
-sudo apt-get install chromium-browser -y
-
 # file transfer(support SSH)
 sudo apt-get install filezilla -y
-
-sudo apt-get install adobe-flashplugin
 
 sudo apt-get install skype -y
 
