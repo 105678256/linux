@@ -30,7 +30,8 @@ apt-get autoremove
  sudo mkdir /tftpboot
  sudo chmod -R 777 /tftpboot
  sudo chown -R nobody /tftpboot
- # need to edit /etc/inetd.conf 
+ # need to edit /etc/inetd.conf
+ 把最后面的那个/srv/tftp目录改为/tftpboot
 # sudo /etc/init.d/openbsd-inetd restart
 sudo apt-get install openssh-server -y
 
