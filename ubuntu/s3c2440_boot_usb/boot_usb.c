@@ -180,6 +180,7 @@ int main(int argc, char **argv)
 	char *filename, *prog;
 	struct stat st;
 	int fd;
+	int rc;
 	u_int32_t word = 0x7c7c7c7c;
 
 	usb_init();
@@ -225,7 +226,8 @@ int main(int argc, char **argv)
 	if (!prog)
 		exit(1);
 
-	if (qt2410_send_file(KERNEL_RAM_BASE, prog, st.st_size)) {
+	rc = qt2410_send_file(KERNEL_RAM_BASE, prog, st.st_size);
+		if (rc < 0){
 		printf("Error downloading program\n");
 		exit(1);
 	}
