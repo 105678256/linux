@@ -52,6 +52,18 @@ sudo apt-get install medit
 
 sudo apt-get install adobe-flashplugin
 
+sudo apt-get install libusb-dev  
+
+
+sudo apt-get install openssh-server -y
+
+
+
+
+
+
+
+
 
 
 
