@@ -27,7 +27,7 @@ int main()
 {
 
 	GPBCON	 =GPB5_out | GPB6_out | GPB7_out | GPB8_out ;	//LED1-LED4对应的4根引脚设为输出
-	GPGCON &= GPG0_in & GPG3_in & GPG5_in & GPG6_in ;		//K1-K4对应的4根引脚设为输入
+	GPGCON &= GPG0_in & GPG3_in & GPG5_in & GPG6_in ;	//K1-K4对应的4根引脚设为输入
 
 	while(1){
 		GPBDAT	= ((GPGDAT & 0x01)<<5) | ((GPGDAT & 0x08)<<3)|((GPGDAT&0x060)<<2);	//若Kn为0(表示按下)，则令LEDn为0(表示点亮)
