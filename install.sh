@@ -57,7 +57,8 @@ sudo apt-get install rar
 sudo apt-get install rar unrar tree -y
 
 sudo apt-get install vmware-player
-
+#bluetooth
+sudo apt-get install blueman
 
 
 
@@ -152,7 +153,6 @@ sudo apt-get install libnotify-dev libsqlite3-dev -y
 ############################## Bluetooth ###############################
 # PRemoteDroid-Server needs libbluetooth
 sudo apt-get install libbluetooth-dev -y
-sudo apt-get install blueman
 sudo apt-get install bluez-hcidump
 
 # hcidump -w hcidump.cap
