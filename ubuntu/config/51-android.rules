@@ -1,4 +1,4 @@
-#  /etc/udev/rules.d/51-android.rules 
+#  放到/etc/udev/rules.d/51-android.rules 
 # Google, Inc. 
 SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", MODE="0666" 
 
