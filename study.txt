@@ -1,0 +1,268 @@
+更新
+Sudo apt-get update
+vi .git/config
+chmod u+x filename 只有自己可以执行，其它人不能执行
+chmod ug+x filename 只有自己以及同一群可以执行，其它人不能执行
+chmod a+x filename 所有人都可以执行　　
+软件名 -v查看版本信息  version
+使用openjtag进行调试时需要注意：1把开发板和jtag接好2开发板上电3把openjtag连接到电脑的usb接口上
+vim安装：sudo apt-get install vim-gnome -y
+Gitthub的使用:sudo apt-get install git git-core 
+1在github上建立自己的项目，再在本地建立自己的库，
+baron@baron:~$ mkdir  github
+baron@baron:~$ cd github/ 
+baron@baron:~/github$ mkdir linux 
+sudo apt-get install git git-core thub$ cd linux/ 
+baron@baron:~/github/linux$ vi readme 
+baron@baron:~/github/linux$ git init 
+Reinitialized existing Git repository in /home/baron/github/linux/.git/ 
+baron@baron:~/github/linux$ git add readme 
+baron@baron:~/github/linux$ git commit -m first 
+[master (root-commit) 2236b85] first 
+ 1 file changed, 1 insertion(+) 
+baron@baron:~/github/linux$ git remote add origin git@github.com:105678256/linux.git
+baron@baron:~/github/linux$ git push -u origin master 
+baron@baron:~/github/linux$ mv ~/documents/mydoc.odt . 
+baron@baron:~/github/linux$ git add mydoc.odt 
+baron@baron:~/github/linux$ git commit 
+baron@baron:~/github/linux$ git push 
+git pull    
+git status  查看状态
+git log  查看历史
+gitclone
+git checkout   file  恢复文件
+
+
+
+tftp服务器配置
+sudo apt-get install tftp tftpd openbsd-inetd
+sudo mkdir /tftpboot
+sudo chmod -R 777 /tftpboot
+sudo chown -R nobody /tftpboot
+修改/etc/inetd.conf 文件，指定目录
+把最后面的那个/srv/tftp目录改为/tftpboot
+sudo /etc/init.d/openbsd-inetd restart
+
+Openocd安装及配置：sudo apt-get install openocd -y
+http://sourceforge.net/projects/openocd/files/openocd/
+ sudo apt-get install libftdi-dev 
+
+baron@baron-desktop:/tmp$ tar xjvf /opt/tarball/openocd-0.6.0.tar.bz2 
+baron@baron-desktop:/tmp/openocd-0.6.0$ ./configure --enable-ft2232_libftdi 
+baron@baron-desktop:/tmp/openocd-0.6.0$ make&&sudo make install
+
+#
+# Openmoko USB JTAG/RS232 adapter
+#
+# http://wiki.openmoko.org/wiki/Debug_Board_v3
+#
+interface ft2232
+ft2232_device_desc "USB<=>JTAG&RS232"
+ft2232_layout jtagkey
+ft2232_vid_pid 0x1457 0x5118
+source [find target/samsung_s3c2440.cfg]
+adapter_khz 6000
+# speed up memory downloads
+arm7_9 fast_memory_access enable
+
+
+
+arm-linux-insight安装及配置http://sources.redhat.com/insight/
+baron@baron-desktop:~$ cd /tmp/ 
+baron@baron-desktop:/tmp$ tar xjvf /opt/tarball/insight-6.8-1a.tar.bz2
+baron@baron-desktop:/tmp$ cd insight-6.8-1/ 
+baron@baron-desktop:/tmp/insight-6.8-1$ ./configure --target=arm-linux --enable-sim 
+修改Makefile否则编译会出错
+vi insight-6.8-1/gdb/Makefile
+WARN_CFLAGS =  -Wall -Wdeclaration-after-statement -Wpointer-arith -Wformat-nonliteral -Wno-pointer-sign -Wno-unused -Wno-switch -Wno-char-subscripts
+#WERROR_CFLAGS = -Werrorcd
+上面一行要注释掉baron@baron-desktop:/tmp/insight-6.8-1$ make && sudo make install 
+
+arm-linux-gdb安装及配置官方网站：http://www.gnu.org/software/gdb/
+
+交叉编译器安装： 
+tar xjvf arm-linux-gcc-4.3.2.tar.bz2 -C /，默认会安装到/usr/local/arm/4.3.2目录 
+修改用户主目录下.bashrc添加 PATH=$PATH:/usr/local/arm/4.3.2/bin 然后注销，
+或者执行. .bashrc(source .bashrc)，不过后者只对当前终端有效
+kermit的使用
+ckermit需要有一个配置文件，一般放到用户主目录下，文件名为/.kermrc，把下面内容copy到配置文件中
+#set line /dev/ttyS0
+set line /dev/ttyUSB0
+set speed 115200
+set carrier-watch off
+set handshake none
+set flow-control none
+robust
+set file type bin
+set file name lit
+set rec pack 1000
+set send pack 1000
+set window 5
+注意上面的配置文件中
+set line /dev/ttyUSB0指定使用的设备节点，这里使用的是usb转串口，如果直接使用串口（如pc机）这里就要指定为set line /dev/ttyS0
+kermit -c 
+离开kermit    ctrl+\再按c
+再进入kermit   按c
+
+用usb烧写u-boot
+首先启动方式拨到nor启动，连接好串口及usb，打开kermit，选a,
+ 给开发板上电,执行命令s3c2410_boot_usb  u-boot.bin,需要权限sudo  烧写完成把启动开关拨到nand启动，然后重启开发板，进入可以练习uboot命令.
+
+>halt
+>reset
+>resume
+>step
+>bp
+>rbp
+>rwp
+>poll
+>mdb ['phys'] address [count] 
+      display memory bytes 
+>mdh ['phys'] address [count] 
+      display memory half-words 
+>mdw ['phys'] address [count] 
+      display memory words
+>mwb ['phys'] address value [count] 
+      write memory byte 
+>mwh ['phys'] address value [count] 
+      write memory half-word 
+>mww ['phys'] address value [count] 
+      write memory word
+ 用openjtag烧录到 nand
+1连接好开发板和jtag，然后给开发板上电，把jtag连接到电脑上，打开openocd
+另开一窗口输入telnet localhost 4444     
+>halt
+>nand prove 0
+>nand list
+>nand erase 0 0 0x4000
+nand write 0 /home/.../u-boot.bin 0
+>nand verify 0 /home/.../u-boot.bin 0
+>resume
+
+在内存中运行
+openocd执行需要一个配置文件openocd.cfg，先把openocd.cfg放到工作目录下
+fdbai@fdbai-desktop:~/fdbai/training/x-loader/leds$ openocd 
+
+注意执行openocd命令时最好切换到工作目录，这样在下载可执行文件到内存时直接写文件名即可，比较方便
+另开一个终端通过telnet连接到开发板
+fdbai@fdbai-desktop:~/fdbai/training/x-loader/leds$ telnet localhost 4444 
+
+> halt                                                              停止目标板
+target state: halted 
+target halted in ARM state due to debug-request, current mode: Supervisor 
+cpsr: 0xf00000d3 pc: 0x00000018 
+MMU: disabled, D-Cache: disabled, I-Cache: disabled 
+> arm920t cp15 2 0 
+2: 00000000 
+> step 						这两句用于关闭D-Cache和 I-Cache，如果
+						已经关闭可以不执行这两条命令
+target state: halted 
+target halted in ARM state due to single-step, current mode: Supervisor 
+cpsr: 0xf00000d3 pc: 0x00000018 
+MMU: disabled, D-Cache: disabled, I-Cache: disabled 
+> load_image leds 				把生成的可执行程序加载到内存
+36 bytes written at address 0x00000000 
+downloaded 36 bytes in 0.049084s (0.716 KiB/s) 
+> resume 0					程序从地址0开始执行，注意这里不会有任何输出，但可以看到开发板上的led4已经是亮的了
+
+U-Boot
+常用命令
+help              saveenv                run                tftp                   bootm                     tftpboot               nand read                  nand write                   nand erase           set bootfile uImage
+printenv       bdi          md
+
+
+busybox版本: busybox-1.15.2.tar.bz2	(D5653E5B74B17DBB1EEECDA8B8F22C0A) 
+下载：http://busybox.net/downloads/busybox-1.15.2.tar.bz2 
+
+make menuconfig 
+选项配置  
+Build Options(arm-linux-) Cross Compiler prefix 
+Installation Options[*] Don't use /usr 
+
+make && make install 
+
+udev版本: udev-139.tar.bz2			(7E705E237D29734C77BC26F6CCBC4594) 
+http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev-139.tar.bz2 
+
+udev是用户管理设备的工具，用于替代原来的devfs 
+编译选项： ./configure --target=arm-linux --host=arm-linux LD=arm-linux-ld 
+编译完成后复制udevd和udevadm到自己的文件系统中相应目录下 
+cp udev/udevd nfsroot/sbin
+cp udev/udevadm nfsroot/sbin 
+
+在启动脚本(如/etc/init.d/rcS)中加入以下语句： 
+if test -x /sbin/udevd 
+then 
+	echo "Starting udevd ..." 
+	/sbin/udevd --daemon 
+	/sbin/udevadm trigger 
+	/sbin/udevadm settle 
+fi 
+udev的配置 
+[rrr@localhost udev]$ pwd 
+/home/rrr/nfsroot/etc/udev 
+[rrr@localhost udev]$ ls 
+rules.d  scripts  udev.conf 
+
+目录rules.d直接从udev-139/rules/rules.d复制过来，udev.conf是从udev-139/udev.conf复制得来的
+scripts目录下的两个脚本是用于挂载SD卡和U盘的 
+fdbai@localhost:/nfsroot/fdbai/root26/home/newroot26/etc/udev$ ls scripts/ 
+mmc.sh  usb.sh 
+
+
+解压文件
+tar  xjvf                     tar .bz2
+tar  xzvf 			tar.gz
+rar 		x			unrar
+zip          unzip
+tar xvf   file.tar
+tar cvf   filename.tar  file  打包
+tar cjvf filename.tar.bz2  file 打包加压缩
+tar czvf filename.tar.gz  file 打包加压缩
+
+ bz2格式用j 
+gz格式用z 
+c是创建 
+x是解压缩 
+v是详细信息 
+f是指定文件 
+ 可以man tar查看
+
+
+
+
+led_on:led_on.s 
+
+arm-linux-gcc -g -c -o file.o file.s or file.c
+
+arm-linux-ld -Ttext 0x0000000 -g file1.o file2.o file3.o -o file-ld.o 
+
+arm-linux-objcopy -O binary -S file-ld.o file.bin
+
+
+all:
+	gcc a.c -c -o a.o
+	gcc bbb.c	-c -o bbb.o
+	gcc ccc.c -c -o ccc.o
+	ld -Ttext 0x00000 a.o ccc.o bbb.o -o all.o 
+
+SECTIONS { 
+
+firtst 0x00000000 : { head.o init.o } 
+
+second 0x30000000 : AT(4096) { main.o } 
+} 
+完整的连接脚本文件形式如下: 
+SECTIONS { 
+... 
+secname start BLOCK(align) (NOLOAD) : AT ( ldadr ) 
+{ contents } >region :phdr =fill 
+... 
+}
+
+secname:段名,对于nand.lds,段名为first和second 
+start:本段运行时的地址,如果没有使用AT(xxx),则本段存储的地址 
+也是start 
+AT( ldadr ):定义本段存储(加载)的地址 
+{ contents }:决定哪些内容放在本段,可以是整个目标文件,也可以 
+是目标文件中的某段(代码段、数据段等)
