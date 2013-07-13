@@ -59,9 +59,11 @@ sudo apt-get install rar unrar tree -y
 sudo apt-get install vmware-player
 #bluetooth
 sudo apt-get install blueman
+# make menuconfig need this
+sudo apt-get install libncurses5-dev -y
+sudo apt-get install u-boot-tools
 
-
-
+sudo apt-get install g++ -y
 
 
 
@@ -111,8 +113,6 @@ sudo apt-get build-dep linux-image-$(uname -r) -y
 ############################ linux kernel dev ##########################
 # make xconfig needs qt
 sudo apt-get install libqt4-dev -y
-# make menuconfig need this
-sudo apt-get install libncurses5-dev -y
 # a front end reader of trace-cmd output
 sudo apt-get install kernelshark -y
 ############################ dhcp server ###############################
@@ -137,7 +137,6 @@ sudo apt-get install youtube-dl
 # update to latest version
 sudo youtube-dl -U
 ############################# android stuff ############################
-sudo apt-get install g++ -y
 sudo apt-get install bison flex gperf -y
 sudo apt-get install zlib1g-dev libssl-dev -y
 sudo apt-get install libglib2.0-dev -y
@@ -203,8 +202,6 @@ sudo apt-get install libgmp3c2
 sudo apt-get install curl
 sudo apt-get install gcc-arm-linux-gnueabi -y
 
-# beyound compare
-sudo gdebi /opt/software/ubuntu/bcompare/bcompare-3.3.5.15075_i386.deb
 
 # nfs server
 sudo apt-get install nfs-kernel-server -y --force-yes

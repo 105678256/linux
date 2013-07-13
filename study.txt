@@ -24,14 +24,14 @@ baron@baron:~/github/linux$ git remote add origin git@github.com:105678256/linux
 baron@baron:~/github/linux$ git push -u origin master 
 baron@baron:~/github/linux$ mv ~/documents/mydoc.odt . 
 baron@baron:~/github/linux$ git add mydoc.odt 
-baron@baron:~/github/linux$ git commit 
+baron@baron:~/github/linux$ git commit -asm'massage'
 baron@baron:~/github/linux$ git push 
 git pull    
 git status  查看状态
 git log  查看历史
 gitclone
 git checkout   file  恢复文件
-
+git log --stat
 
 
 tftp服务器配置
