@@ -1,5 +1,5 @@
 [user]
-	email = baron@163.com
+	email = 105678256@163.com
 	name = baron
 [color]
 	diff = auto
@@ -7,6 +7,6 @@
 	smtpencryption = tls
 	smtpserver = smtp.163.com
 	smtpserverport = 587
-	smtpuser = baron@163.com
+	smtpuser = 105678256@163.com
 	smtpssl = yes
-	from = baron <baron@163.com>
+	from = 105678256 <105678256@163.com>
