@@ -33,6 +33,7 @@ sudo apt-get install ibus-table-wubi
 sudo apt-get install ktouch
 #Git
 sudo apt-get install git git-core
+sudo apt-get install git
 #更新文件
 sudo apt-get update
 #goldendict词典
@@ -68,7 +69,15 @@ sudo apt-get install g++ -y
 
 
 
+下载地址http://www.vmware.com/cn
+VMware-Workstation-Full-10.0.1-1379776.i386.bundle
+cd /tmp
+cp VMware-Workstation-Full-10.0.1-1379776.i386.bundle
+ sudo chmod +x VMware-Workstation-Full-10.0.1-1379776.i386.bundle
+ sudo ./VMware-Workstation-Full-10.0.1-1379776.i386.bundle
 
+卸载vmware  
+vmware-installer -u vmware-player 
 
 
 
